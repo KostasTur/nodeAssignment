@@ -1,6 +1,10 @@
 import Model from '../models/modelModel.js';
-
-const modelsAndWehiclesCount = async (req, res) => {
+export const getModels = (req, res) => {
+  Model.find({})
+    .then((data) => res.json(data))
+    .catch((err) => console.log(err));
+};
+export const vehicleCountByModel = async (req, res) => {
   try {
     const modelsAndCars = await Model.aggregate([
       {
@@ -20,4 +24,15 @@ const modelsAndWehiclesCount = async (req, res) => {
     console.log(err);
   }
 };
-export default modelsAndWehiclesCount;
+export const postModel = (req, res) => {
+  const model = new Model(req.body);
+  model
+    .save()
+    .then((response) => res.json({ response, message: 'New Model saved' }))
+    .catch((err) =>
+      res.json({
+        err,
+        message: 'Model name is alredy used. Please inserst unique model name',
+      })
+    );
+};
