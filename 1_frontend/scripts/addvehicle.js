@@ -1,6 +1,5 @@
 // ENDPOINTS
-MODELS_ENDPOINT = 'http://localhost:5000/models';
-VEHICLES_ENDPOINT = 'http://localhost:5000/vehicles';
+import { MODELS_ENDPOINT, VEHICLES_ENDPOINT } from './modules/endpoints.js';
 // ---  RENDERING SELECT OPTIONS ---
 // Variables
 // DOM

@@ -1,5 +1,4 @@
-MODELS_ENDPOINT = 'http://localhost:5000/models';
-MODELSCOUNT_ENDPOINT = 'http://localhost:5000/modelscount';
+import { MODELS_ENDPOINT, MODELSCOUNT_ENDPOINT } from './modules/endpoints.js';
 // Variables
 const modelsTableEl = document.querySelector('#modelsTable');
 const modelsCountTableEl = document.querySelector('#modelsCountTable');

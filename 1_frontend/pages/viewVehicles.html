@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CityBee View Modela</title>
+    <title>View Vehicles</title>
     <!-- CUSTOM CSS -->
 
     <!-- BOOTSTRAP CDN -->
@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
     <!-- CUSTOM JS -->
-    <script defer src="viewModels.js"></script>
+    <script src="../scripts/viewVehicles.js" type="module"></script>
   </head>
   <body>
     <header></header>
@@ -24,33 +24,31 @@
     <main>
       <container class="container">
         <section class="">
-          <h1 class="py-3 text-center bg-primary text-white mb-0">Models</h1>
+          <h1 class="py-3 text-center bg-primary text-white mb-0">Vehicles</h1>
         </section>
         <section class="justify-center">
-          <h5 class="text-center bg-secondary text-white mb-0">All Models</h5>
-          <table class="table text-center">
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Price per hour</th>
-              </tr>
-            </thead>
-            <tbody id="modelsTable"></tbody>
-          </table>
-        </section>
-        <section>
           <h5 class="text-center bg-secondary text-white mb-0">
-            All Models With Vehicle Count
+            FIlter vehicles by country
           </h5>
+          <div class="div d-flex justify-content-evenly">
+            <button data-id="" class="btn btn-primary mt-3">
+              All vehicles
+            </button>
+            <button data-id="lt" class="btn btn-primary mt-3">Lithuania</button>
+            <button data-id="lv" class="btn btn-primary mt-3">Latvia</button>
+            <button data-id="ee" class="btn btn-primary mt-3">Estonia</button>
+          </div>
+
           <table class="table text-center">
             <thead>
               <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Price per hour</th>
-                <th scope="col">Number of vehicles</th>
+                <th scope="col">Model name</th>
+                <th scope="col">Price/hour with VAT</th>
+                <th scope="col">Number plate</th>
+                <th scope="col">country</th>
               </tr>
             </thead>
-            <tbody id="modelsCountTable"></tbody>
+            <tbody id="vehiclesTable"></tbody>
           </table>
         </section>
       </container>

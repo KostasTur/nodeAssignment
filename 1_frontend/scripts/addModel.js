@@ -1,5 +1,5 @@
 // ---- POST METHOD ----
-MODELS_ENDPOINT = 'http://localhost:5000/models';
+import { MODELS_ENDPOINT } from './modules/endpoints.js';
 // Variables
 // Dom Elements
 const fromEl = document.querySelector('form');
@@ -9,7 +9,7 @@ const postModel = (e) => {
   e.preventDefault();
   let model = {
     name: e.target.name.value,
-    hour_price: e.target.hourPrice.value,
+    hour_price: +e.target.hourPrice.value,
   };
   // console.log(car);
   fetch(MODELS_ENDPOINT, {

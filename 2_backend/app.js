@@ -59,11 +59,3 @@ app.get('/vehicles', getVehicles);
 app.post('/vehicles', postVehicle);
 
 app.get('/vehicles/:country', getVehiclesByCountry);
-
-/* REST API
-GET     /api/users      - get all users
-GET     /api/users/:id  - get single user (for example based on id) (or few users based on some criteria)
-POST    /api/users      - add single user
-PUT     /api/users/:id  - update single user (for example based on id)
-DELETE  /api/users/:id  - delete single user (for example based on id)
-*/
