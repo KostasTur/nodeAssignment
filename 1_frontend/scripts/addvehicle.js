@@ -30,9 +30,12 @@ const postVehicle = (e) => {
   const numberPlate = e.target.numberPlate.value;
   const regex = /[^A-Z0-9]+/;
   e.preventDefault();
-  if (numberPlate.length != 6 || numberPlate != regex) {
-    messageEl.innerText =
-      'Number plate must be six digits and only capital letters are allowed!';
+  if (numberPlate.length != 6) {
+    messageEl.innerText = 'Number plate must be of six digits.';
+    return;
+  }
+  if (numberPlate.match(regex)) {
+    messageEl.innerText = 'Only capital letters and numbers are allowed!';
     return;
   }
   if (!modelSelectEl.value || !countrySelectEl.value || !numberPlate) {
