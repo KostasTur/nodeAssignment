@@ -13,7 +13,7 @@ const renderVehicles = (uri) => {
         t += `
             <tr>
             <td>${c.model}</td>
-            <td>${c.hour_priceVAT}€</td>
+            <td>${c.hour_priceVAT.toFixed(2)}€</td>
             <td>${c.numbe_plate}</td>
             <td>${c.country_location}</td>
 
@@ -24,16 +24,7 @@ const renderVehicles = (uri) => {
     });
 };
 const selectFilter = (e) => {
-  console.log(e.target.dataset.id);
   renderVehicles(VEHICLES_ENDPOINT + e.target.dataset.id);
-
-  // switch (e.target.innerText.includes())
-  // {
-  //   case 'All':renderVehicles(VEHICLES_ENDPOINT);
-  //   break;
-  //   case 'Lit':renderVehicles(VEHICLES_ENDPOINT+'lt')
-
-  // }
 };
 // Events
 document.addEventListener(

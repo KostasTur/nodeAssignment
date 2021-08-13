@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>View Vehicles</title>
-    <!-- CUSTOM CSS -->
-
     <!-- BOOTSTRAP CDN -->
     <!-- CSS only -->
     <link
@@ -19,7 +17,54 @@
     <script src="../scripts/viewVehicles.js" type="module"></script>
   </head>
   <body>
-    <header></header>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">CityBee</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html"> Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="./viewModels.html">Models</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="./addModel.html">Add Model</a>
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="viewVehicles.html"
+                  >Vehicles</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="./addvehicle.html" tabindex="-1"
+                  >Add Vehicle</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
 
     <main>
       <container class="container">
@@ -43,9 +88,9 @@
             <thead>
               <tr>
                 <th scope="col">Model name</th>
-                <th scope="col">Price/hour with VAT</th>
+                <th scope="col">Price per hour</th>
                 <th scope="col">Number plate</th>
-                <th scope="col">country</th>
+                <th scope="col">Country</th>
               </tr>
             </thead>
             <tbody id="vehiclesTable"></tbody>
@@ -55,5 +100,11 @@
     </main>
 
     <footer></footer>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

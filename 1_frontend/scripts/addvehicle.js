@@ -4,6 +4,7 @@ import { MODELS_ENDPOINT, VEHICLES_ENDPOINT } from './modules/endpoints.js';
 // Variables
 // DOM
 const modelSelectEl = document.querySelector('#modelSelect');
+
 const addDataToSelectElement = () => {
   fetch(MODELS_ENDPOINT).then((response) =>
     response.json().then((data) => {
@@ -12,7 +13,6 @@ const addDataToSelectElement = () => {
         t += `<option value=${c._id}>${c.name}</option>`;
         return t;
       }, '');
-
       modelSelectEl.innerHTML = selectOptions;
     })
   );
@@ -27,14 +27,24 @@ const countrySelectEl = document.querySelector('#countrySelect');
 const messageEl = document.querySelector('#message');
 // Functions
 const postVehicle = (e) => {
+  const numberPlate = e.target.numberPlate.value;
+  const regex = /[^A-Z0-9]+/;
   e.preventDefault();
-  console.log(countrySelectEl.value, modelSelectEl.value);
+  if (numberPlate.length != 6 || numberPlate != regex) {
+    messageEl.innerText =
+      'Number plate must be six digits and only capital letters are allowed!';
+    return;
+  }
+  if (!modelSelectEl.value || !countrySelectEl.value || !numberPlate) {
+    messageEl.innerText =
+      'please select model, country and insert number plate.';
+    return;
+  }
   let vehicle = {
     model_id: modelSelectEl.value,
-    number_plate: e.target.numberPlate.value,
+    number_plate: numberPlate,
     country_location: countrySelectEl.value,
   };
-  console.log(vehicle);
 
   fetch(VEHICLES_ENDPOINT, {
     method: 'POST',

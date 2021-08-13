@@ -1,18 +1,14 @@
 import Vehicle from '../models/vehicleModel.js';
 
-import Model from '../models/modelModel.js';
 export const getVehicles = async (req, res) => {
   try {
-    // get populated collection
     const populated = await Vehicle.find().populate('model_id');
-    //  destructure and select wanted field
-    const data = populated.map((vehicle) => {
+    const data = await populated.map((vehicle) => {
       const { _id, number_plate, country_location } = vehicle;
       const { name, hour_price } = vehicle.model_id;
       const destructured = {
         _id: _id,
         model: name,
-        //   add VAT of 21%
         hour_priceVAT: hour_price * 1.21,
         numbe_plate: number_plate,
         country_location: country_location,
@@ -34,7 +30,8 @@ export const postVehicle = (req, res) => {
       console.log(err);
       res.json({
         err,
-        message: 'Please inserst unique number plate!',
+        message:
+          'Please check if all fields are selected and number plate is unique!',
       });
     });
 };
